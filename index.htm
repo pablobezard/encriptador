@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Encriptador de texto</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <style>
         .image-container {
@@ -13,15 +14,26 @@
         .rounded-input {
             border-radius: 0.5rem;
         }
+
+        @media (max-width: 767px) {
+            .image-container {
+                order: 2;
+                margin-top: 20px;
+            }
+
+            .col-md-6 {
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 image-container">
+            <div class="col-md-6 order-md-2 image-container">
                 <img src="./encript.jpeg" alt="Imagen" class="img-fluid rounded">
             </div>
-            <div class="col-md-6">
+            <div class="col-md-6 order-md-1">
                 <h1 class="mt-5">Encriptador de texto</h1>
                 <div class="form-group">
                     <label for="inputText">Texto a encriptar:</label>
