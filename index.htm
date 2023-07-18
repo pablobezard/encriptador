@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Encriptador de texto</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        .image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .rounded-input {
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 image-container">
+                <img src="./encript.jpeg" alt="Imagen" class="img-fluid rounded">
+            </div>
+            <div class="col-md-6">
+                <h1 class="mt-5">Encriptador de texto</h1>
+                <div class="form-group">
+                    <label for="inputText">Texto a encriptar:</label>
+                    <textarea class="form-control rounded-input" id="inputText" rows="5" placeholder="Introduce el texto para encriptar"></textarea>
+                </div>
+                <button class="btn btn-primary rounded-input" onclick="encrypt()">Encriptar</button>
+                <div class="form-group mt-3">
+                    <label for="encryptedText">Texto encriptado:</label>
+                    <textarea class="form-control rounded-input" id="encryptedText" rows="5" readonly></textarea>
+                </div>
+                <button class="btn btn-primary rounded-input" onclick="decrypt()">Desencriptar</button>
+                <div class="form-group mt-3">
+                    <label for="decryptedText">Texto desencriptado:</label>
+                    <textarea class="form-control rounded-input" id="decryptedText" rows="5" readonly></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <script>
+        // Función para encriptar el texto
+        function encrypt() {
+            var inputText = document.getElementById("inputText").value;
+            var encryptedText = "";
+
+            // Algoritmo de encriptación (por ejemplo, cifrado César)
+            for (var i = 0; i < inputText.length; i++) {
+                var charCode = inputText.charCodeAt(i);
+                encryptedText += String.fromCharCode(charCode + 1);
+            }
+
+            document.getElementById("encryptedText").value = encryptedText;
+        }
+
+        // Función para desencriptar el texto
+        function decrypt() {
+            var encryptedText = document.getElementById("encryptedText").value;
+            var decryptedText = "";
+
+            // Algoritmo de desencriptación (por ejemplo, cifrado César)
+            for (var i = 0; i < encryptedText.length; i++) {
+                var charCode = encryptedText.charCodeAt(i);
+                decryptedText += String.fromCharCode(charCode - 1);
+            }
+
+            document.getElementById("decryptedText").value = decryptedText;
+        }
+    </script>
+</body>
+</html>
